@@ -16,8 +16,8 @@ group:
 
 This is an example component.
 
-```jsx
-import { Tag } from 'tiui';
+<code src="./_example/theme">Theme 主题</code>
 
-export default () => <Tag title="Tag" />;
-```
+<code src="./_example/size">Size 大小</code>
+
+<code src="./_example/shape">Shape 形状</code>

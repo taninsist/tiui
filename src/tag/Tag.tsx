@@ -1,26 +1,56 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classnames from 'classnames';
+import { TagType } from './type';
+import { StyledProps } from '../common';
+import { useConfig } from '../_utils/useConfig';
+import { TagDefaultProps } from './defaultProps';
 
-// const Foo: FC<{ title: string }> = (props) => <h4>{props.title}</h4>;
+export interface ITagProps extends TagType, StyledProps { }
 
-// export default Foo;
+const Tag = forwardRef<HTMLDivElement, ITagProps>((originProps, ref) => {
 
-function Tag(props) {
+  const mergeProps = { ...TagDefaultProps, ...originProps };
+
   const {
+    content,
+    children,
     className,
-    title
-  } = props;
+    shape,
+    theme,
+    size,
+    ...otherProps
+  } = mergeProps;
 
-  const baseName = 't-tag';
+  const classPrefix = useConfig();
+  const baseName = `${classPrefix}-tag`;
 
-  const mergedClassName = classnames({
-    ...className,
-    [baseName]: true,
-    [`${baseName}--outline`]: true,
-    [`${baseName}--primary`]: true
-  });
+  function getSize(size: string) {
+    switch (size) {
+      case 'small':
+        return '-s';
+      case 'large':
+        return '-l';
+      default:
+        return '';
+    }
+  }
 
-  return <div className={mergedClassName}>{title}</div>;
-}
+  const mergedClassName = classnames(
+    className,
+    baseName,
+    `${baseName}--${shape}`,
+    `${baseName}--${theme}`,
+    `${classPrefix}-size${getSize(size)}`
+  );
+
+  return <div
+    ref={ref}
+    {...otherProps}
+    className={mergedClassName}
+  >
+    {content || children}
+  </div >;
+})
+
 
 export default Tag;
