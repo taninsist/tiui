@@ -1,3 +1,0 @@
-[submodule "src/lib/_common"]
-	path = src/lib/_common
-	url = git@github.com:Tencent/tdesign-common.git

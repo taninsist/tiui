@@ -15,7 +15,6 @@
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
     "doctor": "father doctor",
-    "init": "git submodule init && git submodule update",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
@@ -45,6 +44,9 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "classnames": "^2.5.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
@@ -72,8 +74,5 @@
   },
   "authors": [
     "2996590992@qq.com"
-  ],
-  "dependencies": {
-    "classnames": "^2.5.1"
-  }
+  ]
 }

@@ -1,2 +1,1 @@
-// import '../../_common/style/web/components/tag/_index.less';
-import '../../lib/_common/style/web/components/tag/_index.less'
+import '../../_common/styles/components/tag/_index.less';
